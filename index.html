@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group File Download</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background-color: #222;
+            color: white;
+            border: 1px solid white;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Download Files</h2>
+
+    <button onclick="downloadGroupA()">DL</button>
+    <button onclick="downloadGroupB()">NLP</button>
+
+    <script>
+        function downloadFiles(files) {
+            files.forEach(file => {
+                const link = document.createElement("a");
+                link.href = file;
+                link.download = "";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        }
+
+        function downloadGroupA() {
+            const groupA = [
+                "dl_exercises.ipynb",
+                "TSLA.csv",
+            ];
+            downloadFiles(groupA);
+        }
+
+        function downloadGroupB() {
+            const groupB = [
+                "ex1.py",
+                "ex2.py",
+                "ex3.py",
+                "ex4.py",
+                "ex5.py",
+                "ex6.py",
+                "ex7.py",
+                "ex8.py",
+                "ex9.py",
+                "intents.json",
+            ];
+            downloadFiles(groupB);
+        }
+    </script>
+
+</body>
+
+</html>
